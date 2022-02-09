@@ -12,7 +12,7 @@ on:
     
 jobs:
   build:
-    if: ${{ github.event.label.name != 'git-action-triggered' }}
+    if: ${{ github.event.label.name == 'git-action-triggered' }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout master

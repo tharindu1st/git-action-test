@@ -51,7 +51,7 @@ jobs:
     - name: Set up Node
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: '16'
     - name: Cache local Maven repository
       uses: actions/cache@v2
       with:

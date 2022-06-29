@@ -85,7 +85,7 @@ jobs:
         ref: refs/heads/${{ github.event.inputs.product_branch }}
         path: product-apim
     - name: Build Product-Apim with Maven
-      run: mvn clean install -Dcarbon.apimgt.version=$(cat ../CARBON_APIMGT_VERSION_FILE) -Dcarbon.apimgt.ui.version=$(cat ../APIM_APPS_VERSION_FILE) -fae --file product-apim/pom.xml -DskipBenchMarkTest=true -DskipIntegrationTests=true -Dmaven.test.skip=true
+      run: mvn clean install -Dcarbon.apimgt.version=$(cat ../CARBON_APIMGT_VERSION_FILE) -Dcarbon.apimgt.ui.version=$(cat ../APIM_APPS_VERSION_FILE) -fae --file product-apim/pom.xml -DskipBenchMarkTest=true -DskipIntegrationTests=true
     - name: Get product.version
       run: mvn help:evaluate -Dexpression=project.version -q --file product-apim/pom.xml -DforceStdout > ../PRODUCT_APIM_VERSION_FILE
     - name: Print product.apim.version

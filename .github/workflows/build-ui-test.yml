@@ -94,7 +94,7 @@ jobs:
     - name: start APIM server
       run: |
         unzip product-apim/modules/distribution/product/target/wso2am-$(cat ../PRODUCT_APIM_VERSION_FILE).zip
-        sh wso2am-$(cat ../PRODUCT_APIM_VERSION_FILE)/api-manager.sh start
+        sh wso2am-$(cat ../PRODUCT_APIM_VERSION_FILE)/bin/api-manager.sh start
         sleep 5m # sleep for 5 min to start the server
         nc -zv localhost 9443
         mvn clean install --file apim-apps/tests/pom.xml

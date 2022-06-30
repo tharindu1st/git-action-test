@@ -17,7 +17,7 @@ on:
       ui_branch:
         description: 'Ui branch Name'     
         required: true
-        default: 'master'        
+        default: 'main'        
       product_repo:
         description: 'product repo'     
         required: true
@@ -107,13 +107,13 @@ jobs:
       if: failure()
       with:
         name: cypress-screenshots
-        path: cypress/screenshots
+        path: apim-apps/tests/cypress/screenshots
     - name: Upload videos
       uses: actions/upload-artifact@v2
       if: always()
       with:
         name: cypress-videos
-        path: cypress/videos         
+        path: apim-apps/tests/cypress/videos         
     - name: Google Chat Notification
       uses: Co-qn/google-chat-notification@releases/v1
       with:

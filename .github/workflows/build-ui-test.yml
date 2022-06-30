@@ -97,8 +97,25 @@ jobs:
         sh wso2am-$(cat ../PRODUCT_APIM_VERSION_FILE)/bin/api-manager.sh start
         sleep 5m # sleep for 5 min to start the server
         nc -zv localhost 9443
-        mvn clean install --file apim-apps/tests/pom.xml
-
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+        wait-on: 'https://localhost:9443'
+        wait-on-timeout: 120
+        record: true
+        project: 'apim-apps/tests'
+    - name: Upload ScreenShots
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: cypress-screenshots
+        path: cypress/screenshots
+    - name: Upload videos
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: cypress-videos
+        path: cypress/videos         
     - name: Google Chat Notification
       uses: Co-qn/google-chat-notification@releases/v1
       with:

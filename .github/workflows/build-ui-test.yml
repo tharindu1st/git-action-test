@@ -100,8 +100,6 @@ jobs:
     - name: Cypress run
       uses: cypress-io/github-action@v4
       with:
-        wait-on: 'https://localhost:9443'
-        wait-on-timeout: 120
         record: true
         working-directory: 'apim-apps/tests'
     - name: Upload ScreenShots

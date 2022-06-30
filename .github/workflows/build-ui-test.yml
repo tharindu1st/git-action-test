@@ -103,7 +103,7 @@ jobs:
         wait-on: 'https://localhost:9443'
         wait-on-timeout: 120
         record: true
-        project: 'apim-apps/tests'
+        working-directory: 'apim-apps/tests'
     - name: Upload ScreenShots
       uses: actions/upload-artifact@v2
       if: failure()

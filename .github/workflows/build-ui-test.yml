@@ -114,6 +114,12 @@ jobs:
       with:
         name: cypress-videos
         path: apim-apps/tests/cypress/videos         
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: server-logs
+        path: wso2am-*/repository/logs
     - name: Google Chat Notification
       uses: Co-qn/google-chat-notification@releases/v1
       with:

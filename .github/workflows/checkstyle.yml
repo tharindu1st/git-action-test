@@ -14,5 +14,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tool_name: 'testtool'
+          workdir: 'src'
+          fail_on_error: true
+          level: error
           checkstyle_version: 7.1
+          filter_mode: diff_context
           checkstyle_config: 'https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/checkstyle.xml'

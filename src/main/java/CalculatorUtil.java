@@ -1,6 +1,4 @@
-/**
- *
- */
+
 public class CalculatorUtil {
 
     public static long add(long x, long y) {
